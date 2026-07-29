@@ -1,0 +1,41 @@
+name: Release extension
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package extension
+        run: |
+          mkdir -p dist
+          zip -r dist/FocusTime.zip \
+            manifest.json \
+            background.js \
+            block.html \
+            block.js \
+            dashboard.html \
+            dashboard.css \
+            dashboard.js \
+            popup.html \
+            popup.css \
+            popup.js \
+            FocusTimeTracker.ps1 \
+            Start-FocusTimeTracker.bat \
+            README.md \
+            icons \
+            lib
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/FocusTime.zip
