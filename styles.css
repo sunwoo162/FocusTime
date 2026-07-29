@@ -338,14 +338,19 @@ h2 {
 }
 
 .steps li {
+  opacity: 0;
+  transform: translateY(24px) scale(.97);
   transform-origin: center bottom;
-  animation: step-in .68s cubic-bezier(.2,.8,.2,1) both;
   transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
 }
 
-.steps li:nth-child(1) { animation-delay: .08s; }
-.steps li:nth-child(2) { animation-delay: .18s; }
-.steps li:nth-child(3) { animation-delay: .28s; }
+.install.in-view .steps li {
+  animation: step-in .92s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.install.in-view .steps li:nth-child(1) { animation-delay: .12s; }
+.install.in-view .steps li:nth-child(2) { animation-delay: .32s; }
+.install.in-view .steps li:nth-child(3) { animation-delay: .52s; }
 
 .steps li:hover {
   transform: translateY(-4px);
@@ -358,21 +363,30 @@ h2 {
   margin-bottom: 36px;
   color: var(--green);
   font-weight: 900;
-  animation: number-pop .58s cubic-bezier(.2,.8,.2,1) both;
+  opacity: 0;
+  transform: translateY(8px) scale(.86);
 }
 
-.steps li:nth-child(1) span { animation-delay: .22s; }
-.steps li:nth-child(2) span { animation-delay: .32s; }
-.steps li:nth-child(3) span { animation-delay: .42s; }
+.install.in-view .steps span {
+  animation: number-pop .72s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.install.in-view .steps li:nth-child(1) span { animation-delay: .38s; }
+.install.in-view .steps li:nth-child(2) span { animation-delay: .58s; }
+.install.in-view .steps li:nth-child(3) span { animation-delay: .78s; }
 
 .steps li > div {
-  animation: rise-in .58s cubic-bezier(.2,.8,.2,1) both;
+  opacity: 0;
+  transform: translateY(18px);
 }
 
-.steps li:nth-child(1) > div { animation-delay: .3s; }
-.steps li:nth-child(2) > div { animation-delay: .4s; }
-.steps li:nth-child(3) > div { animation-delay: .5s; }
+.install.in-view .steps li > div {
+  animation: rise-in .76s cubic-bezier(.2,.8,.2,1) both;
 }
+
+.install.in-view .steps li:nth-child(1) > div { animation-delay: .48s; }
+.install.in-view .steps li:nth-child(2) > div { animation-delay: .68s; }
+.install.in-view .steps li:nth-child(3) > div { animation-delay: .88s; }
 
 h3 {
   margin: 0 0 8px;
